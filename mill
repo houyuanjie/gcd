@@ -7,7 +7,7 @@
 #   - local file `.mill-version`
 #   - local file `.config/mill-version`
 #   - `mill-version` from YAML fronmatter of current buildfile
-#   - if accessible, find the latest stable version available on Maven Central (https://repo1.maven.org/maven2)
+#   - if accessible, find the latest stable version available on Maven Central (https://mirrors.huaweicloud.com/repository/maven/)
 #   - env-variable `DEFAULT_MILL_VERSION`
 #
 # If a version has the suffix '-native' a native binary will be used.
@@ -287,7 +287,7 @@ if [ ! -s "${MILL}" ] || [ "$MILL_TEST_DRY_RUN_LAUNCHER_SCRIPT" = "1" ] ; then
 
   DOWNLOAD_FILE=$(mktemp mill.XXXXXX)
   if [ "$DOWNLOAD_FROM_MAVEN" = "1" ] ; then
-    DOWNLOAD_URL="https://repo1.maven.org/maven2/com/lihaoyi/mill-dist${ARTIFACT_SUFFIX}/${MILL_VERSION}/mill-dist${ARTIFACT_SUFFIX}-${MILL_VERSION}.${DOWNLOAD_EXT}"
+    DOWNLOAD_URL="https://mirrors.huaweicloud.com/repository/maven/com/lihaoyi/mill-dist${ARTIFACT_SUFFIX}/${MILL_VERSION}/mill-dist${ARTIFACT_SUFFIX}-${MILL_VERSION}.${DOWNLOAD_EXT}"
   else
     MILL_VERSION_TAG=$(echo "$MILL_VERSION" | sed -E 's/([^-]+)(-M[0-9]+)?(-.*)?/\1\2/')
     DOWNLOAD_URL="${GITHUB_RELEASE_CDN}${MILL_REPO_URL}/releases/download/${MILL_VERSION_TAG}/${MILL_VERSION}${DOWNLOAD_SUFFIX}"
