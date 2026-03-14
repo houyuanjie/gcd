@@ -38,6 +38,8 @@ trait LowPriorityGCD:
 object GCD extends LowPriorityGCD:
     inline def apply[A <: Int, B <: Int]: Int = summonFrom:
         case given Aux[A, B, r] =>
+            // same as: constValue[r]
+            // more verbose:
             summonInline[ValueOf[r]].value
 
     given base[A <: Int]: Aux[A, 0, A] = new GCD[A, 0]:
