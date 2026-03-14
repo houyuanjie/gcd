@@ -1,8 +1,6 @@
-//| mill-version: 1.0.4
 package build
 
 import mill.*, scalalib.*
 
-object gcd extends ScalaModule {
-  def scalaVersion = "3.7.2"
-}
+object gcd extends ScalaModule:
+    def scalaVersion = "3.8.2"
