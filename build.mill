@@ -1,6 +1,6 @@
 package build
 
-import mill.*, scalalib.*
+import mill.*, scalalib.*, scalafmt.ScalafmtModule
 
-object gcd extends ScalaModule:
+object gcd extends ScalaModule with ScalafmtModule:
     def scalaVersion = "3.8.2"
